@@ -81,8 +81,8 @@ with st.container():
 
         st.markdown("")
         with st.container():
-            st.subheader("Test the model - enter a sample tweet")
-            tweet = st.text_input('test a sample review or tweet as shown below', 'I lost my luggage and the attendant asked for a bribe ') 
+            st.subheader("Enter a sample tweet or product review")
+            tweet = st.text_input('write a product review', 'Example, the flight attendant was rude and cocky ') 
 
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
