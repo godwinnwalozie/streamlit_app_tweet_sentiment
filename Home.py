@@ -82,8 +82,8 @@ with st.container():
 
         st.markdown("")
         with st.container():
-            st.write("##### Enter a sample tweet or product review")
-            tweet = st.text_input('delete review to input yours', 'Example, customer service is very poor and they delayed in fixing my issues ') 
+            st.write("##### Enter a sample tweet or product review in the text box below")
+            tweet = st.text_input('delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
 
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
