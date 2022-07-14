@@ -142,6 +142,7 @@ with col2:
         wc= WordCloud(max_words = 4000,background_color = "gold", random_state=42).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 13)
         plt.axis("off")
+        plt.tight_layout(pad=0)
         ax.imshow(wc)
         return fig
     plot1 = wordcloud_pos()
@@ -155,6 +156,7 @@ with col2:
         wc= WordCloud(max_words = 4000,background_color = "gold",random_state= 42).generate(text)
         plt.title("wordcloud - most recurring negative words", fontsize = 13)
         plt.axis("off")
+        plt.tight_layout(pad=0)
         ax.imshow(wc)
         return fig
     plot2 = wordcloud_neg()
