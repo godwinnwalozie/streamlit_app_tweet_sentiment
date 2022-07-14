@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-import pickle
+import joblib
 import os
 from wordcloud import WordCloud
 import seaborn as sns
@@ -50,7 +50,7 @@ div.stButton > button:hover {
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model():
-    model = pickle.load(open(os.path.join(dir_name,"model_twitter.pkl"), "rb"))
+    model = joblib.load(os.path.join(dir_name,"model_twitter.joblib"))
     data = pd.read_csv(os.path.join(dir_name, 'twitter_cleaned.csv'), usecols=[0,1,2])
     return model, data
 model, data = load_model()
