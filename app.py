@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import joblib
-import pickle
 import os
 from wordcloud import WordCloud
 import seaborn as sns
@@ -47,9 +46,13 @@ div.stButton > button:hover {
 path = os.path.abspath(os.path.dirname(__file__))
 st.write(path)
 
+# Load ML Models
+@st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
+def load_model ():
+    loaded_model = joblib.load(open(os.path.join(path,"model_twitter.pkl"),"rb"))
+    return loaded_model
+loaded_model = load_model()
 
-st.cache
-model_load = joblib.load(open(os.path.join(path,"model_twitter.pkl"),"rb"))
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_data():
@@ -79,8 +82,6 @@ st.info("""  This type of model can help the customer success or product teams t
 #st.write(data.sample(3))
 
 with st.container():
-
-    
     col1, col2 = st.columns(2)
     with col1:
 
@@ -101,11 +102,11 @@ with st.container():
                     st.markdown(f" character counter: {counter}")
                 
                 else:
-                    probab = model_load.predict_proba([tweet])
-                    probab_neg = model_load.predict_proba([tweet])[:,0]
-                    probab_neut = model_load.predict_proba([tweet])[:,1]
-                    probab_pos = model_load.predict_proba([tweet])[:,2]
-                    prediction = model_load.predict([tweet])[0] 
+                    probab = loaded_model.predict_proba([tweet])
+                    probab_neg = loaded_model.predict_proba([tweet])[:,0]
+                    probab_neut = loaded_model.predict_proba([tweet])[:,1]
+                    probab_pos = loaded_model.predict_proba([tweet])[:,2]
+                    prediction = loaded_model.predict([tweet])[0] 
                     if prediction  == -1 :
                         prediction =  "Negative review 👎" 
                     elif  prediction == 0:
