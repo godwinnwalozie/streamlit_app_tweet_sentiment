@@ -143,7 +143,7 @@ with col2:
         plt.title("wordcloud - most recurring positive words", fontsize = 13)
         plt.axis("off")
         plt.tight_layout(pad=0)
-        ax.imshow(wc)
+        ax.imshow(wc,interpolation="nearest")
         return fig
     plot1 = wordcloud_pos()
     
@@ -157,7 +157,7 @@ with col2:
         plt.title("wordcloud - most recurring negative words", fontsize = 13)
         plt.axis("off")
         plt.tight_layout(pad=0)
-        ax.imshow(wc)
+        ax.imshow(wc,interpolation="nearest")
         return fig
     plot2 = wordcloud_neg()
     
