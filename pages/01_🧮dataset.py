@@ -42,7 +42,8 @@ with st.container():
     col1.metric("Number of rows", row_count, "")
     col2.metric("Number of columns",col_count, "")
     col3.metric("Estimator", "KNeighborsClassifier", "")
-    st.write("Data source  :https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset ")
+    st.write("Twitter US Airline Sentiment")
+    st.write("Data source  :https://www.kaggle.com/datasets/crowdflower/twitter-airline-sentiment ")
     
 
 st.header ("The trained dataset")
