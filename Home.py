@@ -140,9 +140,9 @@ with col2:
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets)
         wc= WordCloud(max_words = 4000,background_color = "gold", random_state=42).generate(text)
-        ax.imshow(wc)
         plt.title("wordcloud - most recurring positive words", fontsize = 13)
         plt.axis("off")
+        ax.imshow(wc)
         return fig
     plot1 = wordcloud_pos()
     
@@ -153,9 +153,9 @@ with col2:
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets)
         wc= WordCloud(max_words = 4000,background_color = "gold",random_state= 42).generate(text)
-        ax.imshow(wc)
         plt.title("wordcloud - most recurring negative words", fontsize = 13)
         plt.axis("off")
+        ax.imshow(wc)
         return fig
     plot2 = wordcloud_neg()
     
