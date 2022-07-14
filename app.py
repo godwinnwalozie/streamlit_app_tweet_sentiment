@@ -9,7 +9,7 @@ import os
 from wordcloud import WordCloud
 import seaborn as sns
 plt.style.use('seaborn-ticks')
-dir_name = os.path.abspath(os.path.dirname(__file__))
+
 
 st.set_page_config(layout="wide")
 
@@ -46,7 +46,7 @@ div.stButton > button:hover {
 </style>""", unsafe_allow_html=True)
 
 
-
+dir_name = os.path.abspath(os.path.dirname(__file__))
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model():
