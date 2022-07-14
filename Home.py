@@ -65,9 +65,10 @@ def load_data():
 
     
    
-st.write(""" #####  This type of model can help the customer success or product teams to ascertain if a product \
-    is doing well or needs to be improved. Are the customers happy in areas such as price, quality of service and so on ?\
-      , or if the feedbacks are are positive, negative, or neutral ?""")
+st.write(""" #####  This Machine Learning model can classifiy feedbacks or product reviews into positive, negative, or neutral . \
+    This will help the customer success or product teams to ascertain if a product \
+    is doing well or in need of improvement. Are the customers happy in areas such as price, quality of service and so on ?\
+  """)
 
 
 st.markdown("")
