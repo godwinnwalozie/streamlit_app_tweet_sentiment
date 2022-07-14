@@ -8,6 +8,7 @@ import joblib
 import os
 from wordcloud import WordCloud
 import seaborn as sns
+from PIL import Image
 
 
 st.set_page_config(layout="wide")
@@ -41,6 +42,12 @@ div.stButton > button:hover {
 </style>""", unsafe_allow_html=True)
 
 
+dir_name = os.path.abspath(os.path.dirname(__file__))
+file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
+st.image(file )
+
+st.markdown("###### Machine Learning Model : by Godwin Nwalozie")
+
 path = os.path.abspath(os.path.dirname(__file__))
 
 # Load ML Models
@@ -62,13 +69,10 @@ dataset =  data
 
 
 
-with st.container():
-    st.title(" 𝐓𝐰𝐢𝐭𝐭𝐞𝐫 - 𝐒𝐞𝐧𝐭𝐢𝐦𝐞𝐧𝐭𝐬 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐨𝐟 𝐓𝐰𝐞𝐞𝐭𝐬")
-    st.write(" by Godwin Nwalozie")
-    st.subheader( " Negative 👎 Neutral😐 Positive 👍") 
+
     
    
-st.info("""  This type of model can help the customer success or product teams to ascertain if the product \
+st.write("""  This type of model can help the customer success or product teams to ascertain if the product \
     is doing well, or if there areas clients are not happy about, such as price, quality and so on\
         sevices , if the feedbacks are are positive, negative, or neutral""")
 
@@ -122,7 +126,7 @@ with col2:
                        'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))
     
     st.markdown("")
-    st.write(" ##### Use the sidebars to select plot types")
+   
     
     
     
@@ -165,10 +169,11 @@ with col2:
     # sentiment % by airlines 
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def perc_sentiment ():        
-        fig, ax = plt.subplots(figsize =(4,4))
-        dataset.airline_sentiment.value_counts().plot(kind = "pie", autopct = "%.2f%%", explode = (0.02,0.02,0.02)  )
-        plt.title("% sentiment by airlines- pie chart", fontsize = 8)
+        fig, ax = plt.subplots(figsize =(2,4))
+        dataset.airline_sentiment.value_counts().plot(kind = "pie",autopct = "%.0f%%", explode = (0.02,0.02,0.02) ,textprops={'fontsize': 6})
+        plt.title("% sentiment by airlines- pie chart", fontsize =12)
         plt.axis("off")
+        
         return fig
     plot4= perc_sentiment ()
     
