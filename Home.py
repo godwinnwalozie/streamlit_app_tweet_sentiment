@@ -82,7 +82,7 @@ with st.container():
         st.markdown("")
         with st.container():
             st.subheader("Enter a sample tweet or product review")
-            tweet = st.text_input('write a product review', 'Example, the product didnt last more than a month of use') 
+            tweet = st.text_input('write a product review', 'Example, the product didnt last more than a month of usage') 
 
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
