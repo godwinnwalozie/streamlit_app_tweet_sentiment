@@ -176,7 +176,7 @@ with col2:
         dataset.airline_sentiment.value_counts().plot(kind = "pie",autopct = "%.0f%%", explode = (0.02,0.02,0.02) ,textprops={'fontsize': 6})
         plt.title("% sentiment by airlines- pie chart", fontsize =12)
         plt.axis("off")
-        #####
+        
         return fig
     plot4= perc_sentiment ()
     
