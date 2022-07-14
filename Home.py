@@ -174,9 +174,7 @@ with col2:
     def perc_sentiment ():        
         fig, ax = plt.subplots(figsize =(2,4))
         dataset.airline_sentiment.value_counts().plot(kind = "pie",autopct = "%.0f%%", explode = (0.02,0.02,0.02) ,textprops={'fontsize': 6})
-        plt.title("% sentiment by airlines- pie chart", fontsize =12)
-
-        
+        plt.axis("off")       
         return fig
     plot4= perc_sentiment ()
     
@@ -186,6 +184,7 @@ with col2:
     def sent ():            
         fig, ax = plt.subplots(figsize =(10,4.5))        
         pd.crosstab(dataset.airline, dataset.airline_sentiment).plot( kind = "bar", ax = ax)
+        plt.title("sentiment by airlines - bar graph" , fontsize = 13)
         plt.style.use('seaborn-darkgrid')
         return fig
     plot5= sent()
