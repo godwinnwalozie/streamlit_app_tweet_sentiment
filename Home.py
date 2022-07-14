@@ -82,7 +82,7 @@ with st.container():
         st.markdown("")
         with st.container():
             st.subheader("Enter a sample tweet or product review")
-            tweet = st.text_input('write a product review', 'Example, the flight attendant was rude and cocky ') 
+            tweet = st.text_input('write a product review', 'Example, the product didnt last more than a month of use') 
 
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
@@ -90,7 +90,7 @@ with st.container():
                     st.markdown(f" character counter: {counter}")
                     st.error(" ##### ...empty ! 😀 input some text")
                                       
-                elif len(tweet) < 30:
+                elif len(tweet) < 25:
                     st.error(" #####  😔 enter more characters")
                     counter = len(tweet)  
                     st.markdown(f" character counter: {counter}")
