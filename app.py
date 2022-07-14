@@ -53,8 +53,7 @@ def load_model():
     model = pickle.load(open(os.path.join(dir_name,"model_twitter.pkl"), "rb"))
     data = pd.read_csv(os.path.join(dir_name, 'twitter_cleaned.csv'), usecols=[0,1,2])
     return model, data
-
-model,data = load_model()
+model, data = load_model()
 
 # unpacking turple
 model_load, dataset = model, data
