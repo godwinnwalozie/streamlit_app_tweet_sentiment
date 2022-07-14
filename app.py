@@ -47,9 +47,9 @@ st.write(path)
 # Load ML Models
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model ():
-    loaded_model = joblib.load(os.path.join(path,"model_twitter.joblib"))
-    return loaded_model
-loaded_model = load_model()
+    model = joblib.load(os.path.join(path,"model_twitter.joblib"))
+    return model
+model = load_model()
 
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
@@ -100,11 +100,11 @@ with st.container():
                     st.markdown(f" character counter: {counter}")
                 
                 else:
-                    probab = loaded_model.predict_proba([tweet])
-                    probab_neg = loaded_model.predict_proba([tweet])[:,0]
-                    probab_neut = loaded_model.predict_proba([tweet])[:,1]
-                    probab_pos = loaded_model.predict_proba([tweet])[:,2]
-                    prediction = loaded_model.predict([tweet])[0] 
+                    probab = model.predict_proba([tweet])
+                    probab_neg = model.predict_proba([tweet])[:,0]
+                    probab_neut = model.predict_proba([tweet])[:,1]
+                    probab_pos = model.predict_proba([tweet])[:,2]
+                    prediction = model.predict([tweet])[0] 
                     if prediction  == -1 :
                         prediction =  "Negative review 👎" 
                     elif  prediction == 0:
