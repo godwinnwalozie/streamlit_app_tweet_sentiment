@@ -110,6 +110,7 @@ with st.container():
                         prediction = "Neutral Review   😐"
                     else:
                         prediction = "Positive Review  ⭐👍"
+                        st.balloons()
                     st.write(f" #### 【{prediction}】")
                     st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
                   
