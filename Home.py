@@ -46,7 +46,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.error("##### Machine Learning Model : by Godwin Nwalozie")
+st.info("##### Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -139,7 +139,7 @@ with col2:
         fig, ax = plt.subplots(dpi=1200) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets)
-        wc= WordCloud(max_words = 1000,background_color="wheat", random_state=42).generate(text)
+        wc= WordCloud(max_words = 1000,background_color="whitesmoke", random_state=42).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
         plt.tight_layout(pad=0)
@@ -153,7 +153,7 @@ with col2:
         fig, ax = plt.subplots(dpi=1200) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets)
-        wc= WordCloud(max_words = 500,background_color="wheat",random_state= 42).generate(text)
+        wc= WordCloud(max_words = 500,background_color="whitesmoke",random_state= 42).generate(text)
         plt.title("wordcloud - most recurring negative words", fontsize = 17)
         plt.axis("off")
         plt.tight_layout(pad=0)
