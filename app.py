@@ -47,7 +47,7 @@ st.write(path)
 # Load ML Models
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model ():
-    loaded_model = joblib.load(open(os.path.join(path,"model_twitter.joblib"),"rb"))
+    loaded_model = joblib.load(os.path.join(path,"model_twitter.joblib"))
     return loaded_model
 loaded_model = load_model()
 
