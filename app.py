@@ -48,15 +48,17 @@ div.stButton > button:hover {
 
 dir_name = os.path.abspath(os.path.dirname(__file__))
 
+
+model_load = joblib.load(os.path.join(dir_name,"model_twitter.joblib"))
+
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model():
-    model = joblib.load(os.path.join(dir_name,"model_twitter.joblib"))
     data = pd.read_csv(os.path.join(dir_name, 'twitter_cleaned.csv'), usecols=[0,1,2])
-    return model, data
-model, data = load_model()
+    return  data
+data = load_model()
 
 # unpacking turple
-model_load, dataset = model, data
+dataset =  data
 
 
 
@@ -101,7 +103,7 @@ with st.container():
                 else:
                     probab = model_load.predict_proba([tweet])
                     probab_neg = model_load.predict_proba([tweet])[:,0]
-                    probab_neut = model.predict_proba([tweet])[:,1]
+                    probab_neut = model_load.predict_proba([tweet])[:,1]
                     probab_pos = model_load.predict_proba([tweet])[:,2]
                     prediction = model_load.predict([tweet])[0] 
                     if prediction  == -1 :
