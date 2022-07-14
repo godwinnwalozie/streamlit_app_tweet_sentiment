@@ -42,7 +42,6 @@ div.stButton > button:hover {
 
 
 path = os.path.abspath(os.path.dirname(__file__))
-st.write(path)
 
 # Load ML Models
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
