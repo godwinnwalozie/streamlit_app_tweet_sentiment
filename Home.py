@@ -136,11 +136,11 @@ with col2:
     #wordcloud postive sentiments
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
-        fig, ax = plt.subplots(dpi=100) 
+        fig, ax = plt.subplots(dpi=1200) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets)
-        wc= WordCloud(max_words = 500,background_color="wheat", random_state=42).generate(text)
-        plt.title("wordcloud - most recurring positive words", fontsize = 13)
+        wc= WordCloud(max_words = 1000,background_color="wheat", random_state=42).generate(text)
+        plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
         plt.tight_layout(pad=0)
         ax.imshow(wc,interpolation="bilinear")
@@ -150,11 +150,11 @@ with col2:
     #wordcloud negative sentiments
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_neg ():
-        fig, ax = plt.subplots(dpi=100) 
+        fig, ax = plt.subplots(dpi=1200) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets)
         wc= WordCloud(max_words = 500,background_color="wheat",random_state= 42).generate(text)
-        plt.title("wordcloud - most recurring negative words", fontsize = 13)
+        plt.title("wordcloud - most recurring negative words", fontsize = 17)
         plt.axis("off")
         plt.tight_layout(pad=0)
         ax.imshow(wc,interpolation="bilinear")
