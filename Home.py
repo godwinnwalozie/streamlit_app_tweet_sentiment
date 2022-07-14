@@ -186,7 +186,6 @@ with col2:
     def sent ():            
         fig, ax = plt.subplots(figsize =(10,4.5))        
         pd.crosstab(dataset.airline, dataset.airline_sentiment).plot( kind = "bar", ax = ax)
-        plt.title("sentiment by airlines - bar graph" , fontsize = 13)
         plt.style.use('seaborn-darkgrid')
         return fig
     plot5= sent()
