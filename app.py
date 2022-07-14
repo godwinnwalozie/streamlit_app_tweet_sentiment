@@ -5,9 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import joblib
+import pickle
 import os
 from wordcloud import WordCloud
 import seaborn as sns
+from imblearn.pipeline import Pipeline as imbPipeline
 plt.style.use('seaborn-ticks')
 
 
@@ -19,14 +21,10 @@ st.markdown("""
                .css-18e3th9 {
                     padding-top: 0.5rem;
                     padding-bottom: 5rem;
-                    padding-left: 5rem;
-                    padding-right: 5rem;
                 }
                .css-wjbhl0 {
                     padding-top: 3rem;
-                    padding-right: 1rem;
                     padding-bottom: 1rem;
-                    padding-left: 1rem;
                 }
         </style>
         """, unsafe_allow_html=True)
@@ -46,16 +44,18 @@ div.stButton > button:hover {
 </style>""", unsafe_allow_html=True)
 
 
-dir_name = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath(os.path.dirname(__file__))
+st.write(path)
 
 
-model_load = joblib.load(os.path.join(dir_name,"model_twitter.joblib"))
+st.cache
+model_load = joblib.load(open(os.path.join(path,"model_twitter.pkl"),"rb"))
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
-def load_model():
-    data = pd.read_csv(os.path.join(dir_name, 'twitter_cleaned.csv'), usecols=[0,1,2])
+def load_data():
+    data = pd.read_csv(os.path.join(path, 'twitter_cleaned.csv'), usecols=[0,1,2])
     return  data
-data = load_model()
+data = load_data()
 
 # unpacking turple
 dataset =  data
