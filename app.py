@@ -8,8 +8,6 @@ import joblib
 import os
 from wordcloud import WordCloud
 import seaborn as sns
-from imblearn.pipeline import Pipeline as imbPipeline
-plt.style.use('seaborn-ticks')
 
 
 st.set_page_config(layout="wide")
@@ -78,7 +76,7 @@ st.info("""  This type of model can help the customer success or product teams t
 
 
 
-
+plt.style.use('seaborn-ticks')
 #st.write(data.sample(3))
 
 with st.container():
