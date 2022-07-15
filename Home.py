@@ -42,11 +42,13 @@ div.stButton > button:hover {
 </style>""", unsafe_allow_html=True)
 
 
+
+
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.info("###### Machine Learning Model : by Godwin Nwalozie")
+st.info(" Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -64,11 +66,20 @@ def load_data():
     return  data
 
     
-   
-st.write("""  This ML model classifiies feedbacks or product reviews into negative, neutral and positive. \
+
+st.markdown("""
+<style>
+.big-font {
+    font-size:20px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<p class="big-font">This ML model classifiies feedbacks or product reviews into negative, neutral and positive. \
     This can help the customer success or product teams to visualize and ascertain if a product \
-    is doing well or in need of improvement. Are the customers happy in areas such as price, quality of service e.t.c\
-  """)
+    is doing well or in need of improvement. Are the customers happy in areas such as price, quality of service e.t.c', 
+    unsafe_allow_html=True)  
+
 
 st.markdown("")
 
@@ -139,7 +150,7 @@ with col2:
         fig, ax = plt.subplots(dpi=500) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets)
-        wc= WordCloud(max_words = 1000, random_state=42,normalize_plurals=True).generate(text)
+        wc= WordCloud(max_words = 1000,background_color="whitesmoke", random_state=42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
@@ -153,7 +164,7 @@ with col2:
         fig, ax = plt.subplots(dpi=1200) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets)
-        wc= WordCloud(max_words = 1000,random_state= 42,normalize_plurals=True).generate(text)
+        wc= WordCloud(max_words = 1000,background_color="whitesmoke",random_state= 42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring negative words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
