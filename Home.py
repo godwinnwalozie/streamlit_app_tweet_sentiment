@@ -46,7 +46,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.info("##### Machine Learning Model : by Godwin Nwalozie")
+st.info("###### Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -65,11 +65,10 @@ def load_data():
 
     
    
-st.write(""" #####  This ML model classifiies feedbacks or product reviews into negative, neutral and positive. \
+st.write("""  This ML model classifiies feedbacks or product reviews into negative, neutral and positive. \
     This can help the customer success or product teams to visualize and ascertain if a product \
     is doing well or in need of improvement. Are the customers happy in areas such as price, quality of service e.t.c\
   """)
-
 
 st.markdown("")
 
