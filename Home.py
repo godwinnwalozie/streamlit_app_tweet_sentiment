@@ -137,10 +137,10 @@ with col2:
     #wordcloud postive sentiments
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
-        fig, ax = plt.subplots(dpi=1200) 
+        fig, ax = plt.subplots(dpi=500) 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets)
-        wc= WordCloud(max_words = 1000,background_color="whitesmoke", random_state=42,normalize_plurals=True).generate(text)
+        wc= WordCloud(max_words = 5000,background_color="whitesmoke", random_state=42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
         plt.tight_layout(pad=0)
