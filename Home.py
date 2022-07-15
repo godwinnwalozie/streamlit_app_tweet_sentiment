@@ -75,9 +75,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">This ML model classifiies feedbacks or product reviews into negative, neutral and positive. \
-    This can help the customer success or product teams to visualize and ascertain if a product \
-    is doing well or in need of improvement. Are the customers happy in areas such as price, quality of service e.t.c', 
+st.markdown('<p class="big-font">This ML model classifiies sentiments from feedbacks or product reviews into negative, neutral & positive. \
+    This can help the customer success or product teams to visualize to determine if a productis doing well or in need of improvement. \
+    Are customers happy with the price, quality of service e.t.c', 
     unsafe_allow_html=True)  
 
 
