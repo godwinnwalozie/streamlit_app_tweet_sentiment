@@ -32,7 +32,7 @@ div.stButton > button:hover {
 
 
 dataset = load_data()
-dataset = st.session_state['dataset']
+dataset = st.session_state ['dataset']
 
 with st.container():
     row_count = len(dataset) 
