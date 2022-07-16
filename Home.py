@@ -16,14 +16,15 @@ st.set_page_config(layout="wide")
 # Remove whitespace from the top of the page and sidebar
 st.markdown("""
         <style>
-               .css-18e3th9 {
+                .css-18e3th9 {
                     padding-top: 0.5rem;
                     padding-bottom: 5rem;
                 }
-               .css-wjbhl0 {
+                .css-wjbhl0 {
                     padding-top: 3rem;
                     padding-bottom: 1rem;
                 }
+   
         </style>
         """, unsafe_allow_html=True)
 
@@ -65,7 +66,7 @@ def load_data():
     data = pd.read_csv(os.path.join(path, 'twitter_cleaned.csv'), usecols=[0,1,2])
     return  data
 
-    
+
 
 st.markdown("""
 <style>
@@ -92,8 +93,12 @@ with st.container():
 
         st.markdown("")
         with st.container():
+            
+            
             st.write("##### Enter a sample tweet or product review in the text box below")
+            
             tweet = st.text_input('delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
+            
 
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
@@ -143,8 +148,16 @@ with col2:
     kaggle=' 🔍Find me on Kaggle [link](https://www.kaggle.com/godwinnwalozie/code)'
     st.sidebar.markdown(kaggle,unsafe_allow_html=True)
     
+ 
+    # chart functions 
     dataset =load_data()
+    # initialize session state
+    st.session_state['dataset'] = dataset
+        
+  
+        
     #wordcloud postive sentiments
+  
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
         fig, ax = plt.subplots(dpi=1200) 
@@ -157,6 +170,9 @@ with col2:
         ax.imshow(wc,interpolation="bilinear")
         return fig
     plot1 = wordcloud_pos()
+
+
+
     
     #wordcloud negative sentiments
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -171,6 +187,8 @@ with col2:
         ax.imshow(wc,interpolation="bilinear")
         return fig
     plot2 = wordcloud_neg()
+
+
     
     # count of customer tweets by airline'
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
