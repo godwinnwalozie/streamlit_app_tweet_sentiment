@@ -49,7 +49,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.info(" Machine Learning Model : by Godwin Nwalozie")
+st.success(" Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -58,7 +58,6 @@ path = os.path.abspath(os.path.dirname(__file__))
 def load_model ():
     model = joblib.load(os.path.join(path,"model_twitter.joblib"))
     return model
-
 
 
 @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
