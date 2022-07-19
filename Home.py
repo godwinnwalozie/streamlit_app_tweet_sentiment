@@ -20,11 +20,11 @@ st.set_page_config(layout="wide")
 st.markdown("""
         <style>
                 .css-18e3th9 {
-                    padding-top: 0.3rem;
+                    padding-top: 0.9rem;
                     padding-bottom: 0.3rem;
                 }
-                .css-wjbhl0 {
-                    padding-top: 3rem;
+                .css-hxt7ib {
+                    padding-top: 1rem;
                     padding-bottom: 1rem;
                 }
    
@@ -78,12 +78,12 @@ st.markdown("""
 <style>
 .big-font {
     font-size:17px !important;
-    color :blue;
+    color :black;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">This ML model analyzes ,predicts and classifiies sentiments from feedbacks or tweets into negative,neutral & positive. \
+st.markdown('<p class="big-font">This ML model analyzes and classifiies sentiments from feedbacks or tweets into negative,neutral & positive. \
     This can help the CS or product teams to visualize to determine if a product is doing well or in need of improvement. Are customers happy with price, quality of service e.t.c ?', 
     unsafe_allow_html=True)  
 
@@ -186,15 +186,16 @@ with col2:
     # count of customer tweets by airline'
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def tweet_count ():
-        fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count())
+        fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count(),\
+            title="Count of tweets by airline")
         return fig
-    plot3 = tweet_count ()
+    plot3 = tweet_count()
     
     
     # sentiment % by airlines 
     def pie_perc ():
         fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
-                    names= dataset.airline_sentiment.value_counts().index )
+                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)" )
         fig.update_traces(textposition='inside', textinfo='percent+label')
         return fig
     plot4 = pie_perc()
@@ -205,9 +206,7 @@ with col2:
     # sentiments by airline
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
-        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="sentiments by airline(bar graph)")
-        
-
+        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)")
         return fig
     plot5= sent()
 
@@ -228,8 +227,8 @@ with col2:
 
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
-file = Image.open(os.path.join(dir_name,"my photo.png"))
-st.sidebar.image(file,width= 170 )
+file = Image.open(os.path.join(dir_name,"mazi.png"))
+st.sidebar.image(file, )
 # Find me links
 kaggle=' 🔍Find me on Linkedin [link](https://www.linkedin.com/in/godwinnwalozie/)'
 st.sidebar.markdown(kaggle,unsafe_allow_html=True)
