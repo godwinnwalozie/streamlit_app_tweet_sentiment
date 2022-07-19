@@ -11,7 +11,6 @@ import seaborn as sns
 from PIL import Image
 import plotly.express as px
 import plotly.graph_objects as go
-import plotly.figure_factory as ff
 
 
 st.set_page_config(layout="wide")
