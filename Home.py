@@ -68,6 +68,10 @@ def load_data():
     return  data
 
 
+dataset =load_data()
+# initialize session state
+st.session_state['dataset'] = dataset
+
 
 st.markdown("""
 <style>
@@ -135,27 +139,12 @@ with st.container():
 with col2:
     st.sidebar.title("Select plots")
     option = st.sidebar.radio('choose plot type', 
-                      ("positive key words","negative key words",'count of tweets by airline', 
-                       'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))
-   
-    dir_name = os.path.abspath(os.path.dirname(__file__))
-    file = Image.open(os.path.join(dir_name,"my photo.png"))
-    st.sidebar.image(file,width= 170 )
-    # Find me links
-    kaggle=' 🔍Find me on Linkedin [link](https://www.linkedin.com/in/godwinnwalozie/)'
-    st.sidebar.markdown(kaggle,unsafe_allow_html=True)
-    git=' 🔍 Find me on Git [link](https://github.com/godwinnwalozie)'
-    st.sidebar.markdown(git,unsafe_allow_html=True)
-    kaggle=' 🔍Find me on Kaggle [link](https://www.kaggle.com/godwinnwalozie/code)'
-    st.sidebar.markdown(kaggle,unsafe_allow_html=True)
+                      ("dataset","positive key words","negative key words",'count of tweets by airline', 
+                       'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))  
     
- 
-    # chart functions 
-    dataset =load_data()
-    # initialize session state
-    st.session_state['dataset'] = dataset
-        
-  
+    def show_dataset ():
+        st.write(dataset.sample(10))
+   
         
     #wordcloud postive sentiments
   
@@ -221,8 +210,9 @@ with col2:
 
 
 
-
-    if option  == "positive key words":
+    if option == "dataset":
+        show_dataset()
+    elif option  == "positive key words":
         plot1
     elif  option == "negative key words":
         plot2
@@ -232,7 +222,19 @@ with col2:
         plot4
     else:
         plot5
-        
+
+  
+dir_name = os.path.abspath(os.path.dirname(__file__))
+file = Image.open(os.path.join(dir_name,"my photo.png"))
+st.sidebar.image(file,width= 170 )
+# Find me links
+kaggle=' 🔍Find me on Linkedin [link](https://www.linkedin.com/in/godwinnwalozie/)'
+st.sidebar.markdown(kaggle,unsafe_allow_html=True)
+git=' 🔍 Find me on Git [link](https://github.com/godwinnwalozie)'
+st.sidebar.markdown(git,unsafe_allow_html=True)
+kaggle=' 🔍Find me on Kaggle [link](https://www.kaggle.com/godwinnwalozie/code)'
+st.sidebar.markdown(kaggle,unsafe_allow_html=True)
+    
 
 
 
