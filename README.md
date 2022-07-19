@@ -4,3 +4,5 @@ I developed this Machine leanring webapp which classifies sentiment from tweets 
 #
 Businesses use sentiment analysis of tweets to understand how consumers feel about their goods and services, get knowledge to inform business decisions, and spot possible PR crises and product problems early on.
 
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://godwinnwalozie-streamlit-app-tweet-sentiment-home-mm7a5w.streamlitapp.com/)
