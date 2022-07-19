@@ -9,6 +9,9 @@ import os
 from wordcloud import WordCloud
 import seaborn as sns
 from PIL import Image
+import plotly.express as px
+import plotly.graph_objects as go
+import plotly.figure_factory as ff
 
 
 st.set_page_config(layout="wide")
@@ -192,28 +195,26 @@ with col2:
     # count of customer tweets by airline'
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def tweet_count ():
-            fig, ax = plt.subplots(figsize =(10,4.5)) 
-            dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count().plot(kind = "bar", ax= ax)
-            plt.title("count of customer tweets by airline", fontsize = 13);
-            return fig
+        fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count())
+        return fig
     plot3 = tweet_count ()
     
     
     # sentiment % by airlines 
-    @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
-    def perc_sentiment ():        
-        fig, ax = plt.subplots(figsize =(2,4))
-        dataset.airline_sentiment.value_counts().plot(kind = "pie",autopct = "%.0f%%", explode = (0.02,0.02,0.02) ,textprops={'fontsize': 6})
-        plt.axis("off")       
+    def pie_perc ():
+        fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
+                    names= dataset.airline_sentiment.value_counts().index )
+        fig.update_traces(textposition='inside', textinfo='percent+label')
         return fig
-    plot4= perc_sentiment ()
-    
+    plot4 = pie_perc()
+       
 
+    
+    
     # sentiments by airline
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
-        fig, ax = plt.subplots(figsize =(10,4.5))        
-        pd.crosstab(dataset.airline, dataset.airline_sentiment).plot( kind = "bar", ax = ax)
+        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment))
         plt.title("sentiment by airlines - bar graph" , fontsize = 13)
         plt.style.use('seaborn-darkgrid')
         return fig
