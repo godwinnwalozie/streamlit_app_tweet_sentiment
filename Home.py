@@ -199,14 +199,12 @@ with col2:
         fig.update_traces(textposition='inside', textinfo='percent+label')
         return fig
     plot4 = pie_perc()
-       
-
     
     
     # sentiments by airline
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
-        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)")
+        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
         return fig
     plot5= sent()
 
