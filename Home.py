@@ -11,6 +11,7 @@ import seaborn as sns
 from PIL import Image
 import plotly.express as px
 import plotly.graph_objects as go
+import random
 
 
 st.set_page_config(layout="wide")
@@ -19,8 +20,8 @@ st.set_page_config(layout="wide")
 st.markdown("""
         <style>
                 .css-18e3th9 {
-                    padding-top: 0.5rem;
-                    padding-bottom: 5rem;
+                    padding-top: 0.3rem;
+                    padding-bottom: 0.3rem;
                 }
                 .css-wjbhl0 {
                     padding-top: 3rem;
@@ -51,7 +52,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.success(" Machine Learning Model : by Godwin Nwalozie")
+st.write(" ##### Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -76,18 +77,18 @@ st.session_state['dataset'] = dataset
 st.markdown("""
 <style>
 .big-font {
-    font-size:20px !important;
+    font-size:17px !important;
+    color :blue;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">This ML model analyzes , predicts and classifiies sentiments from feedbacks or reviews into negative, neutral & positive. \
-    This can help the CS or product teams to visualize to determine if a product is doing well or in need of improvement. \
-    Are customers happy with the price, quality of service e.t.c ?', 
+st.markdown('<p class="big-font">This ML model analyzes ,predicts and classifiies sentiments from feedbacks or tweets into negative,neutral & positive. \
+    This can help the CS or product teams to visualize to determine if a product is doing well or in need of improvement. Are customers happy with price, quality of service e.t.c ?', 
     unsafe_allow_html=True)  
 
 
-st.markdown("")
+#st.markdown("")
 
 plt.style.use('seaborn-ticks')
 #st.write(data.sample(3))
@@ -96,7 +97,7 @@ with st.container():
     col1, col2 = st.columns(2)
     with col1:
 
-        st.markdown("")
+        st.markdown("***")
         with st.container():
             
             
@@ -143,7 +144,9 @@ with col2:
                        'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))  
     
     def show_dataset ():
-        st.write(dataset.sample(10))
+        if st.button("randomize dataset"):
+            random.random()
+        st.write(dataset.sample(5))
    
         
     #wordcloud postive sentiments
@@ -203,7 +206,7 @@ with col2:
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
         fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment))
-        plt.title("sentiment by airlines - bar graph" , fontsize = 13)
+        #plt.title("sentiment by airlines - bar graph" , fontsize = 13)
         plt.style.use('seaborn-darkgrid')
         return fig
     plot5= sent()
