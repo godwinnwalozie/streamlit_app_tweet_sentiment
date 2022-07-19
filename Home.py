@@ -146,7 +146,7 @@ with col2:
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
-        st.write(dataset.sample(5))
+        st.write(dataset.sample(7))
    
         
     #wordcloud postive sentiments
@@ -205,9 +205,9 @@ with col2:
     # sentiments by airline
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
-        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment))
-        #plt.title("sentiment by airlines - bar graph" , fontsize = 13)
-        plt.style.use('seaborn-darkgrid')
+        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="sentiments by airline(bar graph)")
+        
+
         return fig
     plot5= sent()
 
