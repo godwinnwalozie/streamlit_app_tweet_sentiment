@@ -76,6 +76,7 @@ dataset =load_data()
 st.session_state['dataset'] = dataset
 
 
+
 st.markdown("""
 <style>
 .big-font {
@@ -123,9 +124,9 @@ with st.container():
                 else:
                     model = load_model()
                     probab = model.predict_proba([tweet])
-                    probab_neg = model.predict_proba([tweet])[:,0]
-                    probab_neut = model.predict_proba([tweet])[:,1]
-                    probab_pos = model.predict_proba([tweet])[:,2]
+                    probab_neg = np.round(model.predict_proba([tweet]),3)[:,0]
+                    probab_neut = np.round(model.predict_proba([tweet]),3)[:,1]
+                    probab_pos = np.round(model.predict_proba([tweet]),3)[:,2]
                     prediction = model.predict([tweet])[0] 
                     if prediction  == -1 :
                         prediction =  "Negative review 👎" 
@@ -155,9 +156,9 @@ with col2:
   
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
-        fig, ax = plt.subplots(dpi=1200) 
+        fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
-        text = "".join(super[super.airline_sentiment == "positive"].tweets)
+        text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
         wc= WordCloud(max_words = 1000,background_color="whitesmoke", random_state=42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
@@ -172,9 +173,9 @@ with col2:
     #wordcloud negative sentiments
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_neg ():
-        fig, ax = plt.subplots(dpi=1200) 
+        fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
-        text = "".join(super[super.airline_sentiment == "negative"].tweets)
+        text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
         wc= WordCloud(max_words = 1000,background_color="whitesmoke",random_state= 42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring negative words", fontsize = 17)
         plt.axis("off")
