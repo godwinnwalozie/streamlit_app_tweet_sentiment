@@ -13,7 +13,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import random
 from sklearn.base import TransformerMixin
-from imblearn.pipeline import Pipeline as imbPipeline
 from sklearn.naive_bayes import MultinomialNB
 
 
