@@ -210,6 +210,7 @@ with col2:
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
         fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
+        fig.update_traces(textposition='outside', textinfo='percent+label',textfont_size=15)
         return fig
     plot5= sent()
 
