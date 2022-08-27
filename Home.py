@@ -200,7 +200,7 @@ with col2:
     # sentiment % by airlines 
     def pie_perc ():
         fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
-                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)" )
+                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)",hole=0.6 )
         fig.update_traces(textposition='inside', textinfo='percent+label')
         return fig
     plot4 = pie_perc()
@@ -210,6 +210,7 @@ with col2:
     @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
         fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
+        fig.update_traces(textposition='outside', textinfo='percent+label')
         return fig
     plot5= sent()
 
