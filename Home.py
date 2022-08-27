@@ -159,7 +159,8 @@ with col2:
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
-        wc= WordCloud(max_words = 1000,background_color="whitesmoke", random_state=42,normalize_plurals=True).generate(text)
+        wc= WordCloud(max_words = 1000,background_color="black", max_font_size=100, scale=10,\
+    relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring positive words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
@@ -176,7 +177,8 @@ with col2:
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
-        wc= WordCloud(max_words = 1000,background_color="whitesmoke",random_state= 42,normalize_plurals=True).generate(text)
+        wc= WordCloud(max_words = 1000,background_color="black", max_font_size=100, scale=10,\
+    relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
         plt.title("wordcloud - most recurring negative words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
