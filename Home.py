@@ -200,7 +200,7 @@ with col2:
     # sentiment % by airlines 
     def pie_perc ():
         fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
-                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)",hole=0.7 )
+                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)",hole=0.5 )
         fig.update_traces(textposition='outside', textinfo='percent+label')
         return fig
     plot4 = pie_perc()
