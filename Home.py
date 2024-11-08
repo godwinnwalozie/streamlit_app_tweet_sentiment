@@ -59,13 +59,13 @@ st.write(" ##### Machine Learning Model : by Godwin Nwalozie")
 path = os.path.abspath(os.path.dirname(__file__))
 
 # Load ML Models
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
+## @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model ():
     model = joblib.load(os.path.join(path,"model_twitter.joblib"))
     return model
 
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
+## @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_data():
     data = pd.read_csv(os.path.join(path, 'twitter_cleaned.csv'), usecols=[0,1,2])
     return  data
@@ -93,7 +93,7 @@ st.markdown('<p class="big-font">This ML model analyzes and classifiies sentimen
 
 #st.markdown("")
 
-plt.style.use('seaborn-ticks')
+plt.style.use("seaborn-v0_8")
 #st.write(data.sample(3))
 
 with st.container():
@@ -154,7 +154,7 @@ with col2:
         
     #wordcloud postive sentiments
   
-    @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+    @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
@@ -172,7 +172,7 @@ with col2:
 
     
     #wordcloud negative sentiments
-    @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+    @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_neg ():
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
@@ -189,7 +189,7 @@ with col2:
 
     
     # count of customer tweets by airline'
-    @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+    @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def tweet_count ():
         fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count(),\
             title="Count of tweets by airline")
@@ -207,7 +207,7 @@ with col2:
     
     
     # sentiments by airline
-    @st.cache(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+    @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def sent ():            
         fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
         return fig
