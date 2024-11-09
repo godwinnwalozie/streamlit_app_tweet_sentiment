@@ -23,7 +23,7 @@ st.markdown("""
         <style>
                 .css-18e3th9 {
                     padding-top: 0.9rem;
-                    padding-bottom: 0.3rem;
+                    padding-bottom: 0.2rem;
                 }
                 .css-hxt7ib {
                     padding-top: 1rem;
@@ -72,9 +72,8 @@ def load_data():
 
 
 dataset =load_data()
-# initialize session state
+## initialize session state
 st.session_state['dataset'] = dataset
-
 
 
 st.markdown("""
