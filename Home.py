@@ -104,9 +104,9 @@ with st.container():
         with st.container():
             
             
-            st.write(" Enter a sample tweet or product review to test")
+            st.write("###### Enter a sample tweet or product review to test")
             
-            tweet = st.text_input(' delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
+            tweet = st.text_input('delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
 
             if st.button('click to make a prediction 👈'):
