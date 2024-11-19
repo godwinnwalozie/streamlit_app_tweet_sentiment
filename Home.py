@@ -85,8 +85,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="big-font">This ML model analyzes and classifiies sentiments from feedbacks or tweets into negative,neutral & positive. \
-    This can help the CS or product teams to visualize to determine if a product is doing well or in need of improvement. Are customers happy with price, quality of service e.t.c ?', 
+st.markdown('<p class="big-font">A Machine Learning Sentiment Analysis Visualization is a graphical representation of customer sentiment derived from analyzing textual data using machine learning models. It identifies and categorizes feedback into sentiments such as positive, neutral, or negative by processing large volumes of text data from sources like social media, surveys, or reviews.', 
     unsafe_allow_html=True)  
 
 
