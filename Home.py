@@ -53,7 +53,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
 st.image(file,width=500)
 
-st.write(" ##### Built By: Godwin Nwalozie")
+st.write(" ##### Developed By: Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
