@@ -79,13 +79,13 @@ st.session_state['dataset'] = dataset
 st.markdown("""
 <style>
 .big-font {
-    font-size:17px !important;
+    font-size:14px !important;
     color :black;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.write_stream ('<p class="big-font">This Machine Learning Sentiment Analysis Visualization is a \
+st.write('<p class="big-font">This Machine Learning Sentiment Analysis Visualization is a \
             graphical representation of customer sentiment derived from analyzing textual \
             data using machine learning models. It identifies and categorizes feedback into sentiments such as positive, neutral, or negative by processing large volumes of text \
             data from sources like social media, surveys, or reviews.', 
