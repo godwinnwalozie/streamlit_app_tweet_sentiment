@@ -54,7 +54,7 @@ dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
 st.image(file)
 
-st.write(" ##### Machine Learning Model : by Godwin Nwalozie")
+st.write(" ###### Machine Learning Model : by Godwin Nwalozie")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
