@@ -52,7 +52,7 @@ div.stButton > button:hover {
 
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"title_image-2d.png"))
-st.image(file)
+st.image(file,width=300)
 
 st.write(" ###### Machine Learning Model : by Godwin Nwalozie")
 
