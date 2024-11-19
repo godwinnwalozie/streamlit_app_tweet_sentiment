@@ -161,7 +161,7 @@ with col2:
         text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
         wc= WordCloud(max_words = 1000,background_color="black", max_font_size=100, scale=10,\
     relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
-        plt.title("wordcloud - most recurring positive words", fontsize = 17)
+        plt.title("wordcloud - Most recurring positive words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
         ax.imshow(wc,interpolation="bilinear")
@@ -179,7 +179,7 @@ with col2:
         text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
         wc= WordCloud(max_words = 500,background_color="black", max_font_size=100, scale=10,\
     relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
-        plt.title("wordcloud - most recurring negative words", fontsize = 17)
+        plt.title("wordcloud - Most recurring negative words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
         ax.imshow(wc,interpolation="bilinear")
