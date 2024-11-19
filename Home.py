@@ -229,7 +229,7 @@ with col2:
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"mazi.png"))
-st.sidebar.image(file,width=200 )
+st.sidebar.image(file,width=150 )
 # Find me links
 kaggle=' 🔍Find me on Linkedin [link](https://www.linkedin.com/in/godwinnwalozie/)'
 st.sidebar.markdown(kaggle,unsafe_allow_html=True)
