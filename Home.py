@@ -164,7 +164,7 @@ with col2:
         plt.title("wordcloud - Most recurring positive words", fontsize = 17)
         plt.axis("off")
         #plt.tight_layout(pad=0)
-        ax.imshow(wc,interpolation="bilinear",bbox_inches='tight')
+        ax.imshow(wc,interpolation="bilinear")
         return fig
     plot1 = wordcloud_pos()
 
