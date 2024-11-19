@@ -104,9 +104,9 @@ with st.container():
         with st.container():
             
             
-            st.write(' <p class="big-font">Enter a sample tweet or product review to test')
+            st.write('<p class="big-font">Enter a sample tweet or product review to test',unsafe_allow_html=True)
             
-            tweet = st.text_input('<p class="big-font">delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
+            tweet = st.text_input('<p class="big-font">delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues',unsafe_allow_html=True) 
             
 
             if st.button('click to make a prediction 👈'):
