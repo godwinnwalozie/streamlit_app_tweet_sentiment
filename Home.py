@@ -115,7 +115,7 @@ with st.container():
         with st.container():
             
             
-            st.write('<p class="big-font"> Enter a sample tweet or product review to test',unsafe_allow_html=True)
+            st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
             tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
 
