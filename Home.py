@@ -65,7 +65,7 @@ file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
 st.image(file,width=400)
 
 st.write(" ##### Developed By: Godwin Nwalozie")
-st.write("𝔻𝕒𝕥𝕒𝕤𝕖𝕥 : 𝔸𝕓𝕠𝕦𝕥 30,000 𝕋𝕨𝕖𝕖𝕥𝕤")
+
 
 path = os.path.abspath(os.path.dirname(__file__))
 
@@ -102,7 +102,7 @@ st.write('<p class="big-font">This Machine Learning Sentiment Analysis Visualiza
             data from sources like social media, surveys, or reviews.', 
     unsafe_allow_html=True)  
 
-
+st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 30,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
 st.markdown("****")
 
 plt.style.use("seaborn-v0_8")
