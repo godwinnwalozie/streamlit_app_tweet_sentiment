@@ -221,13 +221,13 @@ with col2:
 
     if option == "dataset":
         show_dataset()
-    elif option  == "positive key words":
+    elif option  == "Positive key words":
         plot1
-    elif  option == "negative key words":
+    elif  option == "Negative key words":
         plot2
-    elif option == "count of tweets by airline":
+    elif option == "Count of tweets by airline":
         plot3
-    elif option == "distribution of sentiments(pie chart)" :
+    elif option == "Distribution of sentiments(pie chart)" :
         plot4
     else:
         plot5
