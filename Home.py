@@ -99,7 +99,7 @@ st.markdown("""
 st.write('<p class="big-font">A machine learning model for airline sentiment analysis processes customer feedback, such as social media posts, reviews, and surveys, to understand public sentiment toward an airline. The model uses Natural Language Processing (NLP) techniques to classify text into categories like positive, neutral, or negative sentiments.', 
     unsafe_allow_html=True)  
 
-st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 30,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
+st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 20,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
 st.markdown("****")
 
 plt.style.use("seaborn-v0_8")
@@ -162,7 +162,7 @@ with col2:
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
-        wc= WordCloud(max_words = 2500,background_color="black", max_font_size=100, scale=10,\
+        wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
     relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
         plt.title("Wordcloud | Most recurring positive words", fontsize = 17)
         plt.axis("off")
@@ -179,7 +179,7 @@ with col2:
         fig, ax = plt.subplots() 
         super = dataset.loc[:,["tweets","airline_sentiment"]]
         text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
-        wc= WordCloud(max_words = 2500,background_color="black", max_font_size=100, scale=10,\
+        wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
     relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
         plt.title("Wordcloud | Most recurring negative words", fontsize = 17)
         plt.axis("off")
