@@ -33,6 +33,17 @@ st.markdown("""
         </style>
         """, unsafe_allow_html=True)
 
+text_input_area = '''
+    <style>
+        div.css-1om1ktf.e1y61itm0 {
+          width: 800px;
+        }
+        textarea.st-cl {
+          height: 400px;
+        }
+    </style>
+    '''
+
 
 # button styling
 m = st.markdown("""
@@ -106,7 +117,7 @@ with st.container():
             
             st.write("###### Enter a sample tweet or product review to test")
             
-            tweet = st.text_input('delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
+            tweet = st.text_input(text_input_area,'delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
 
             if st.button('click to make a prediction 👈'):
@@ -141,7 +152,7 @@ with st.container():
         
 
 with col2:
-    st.sidebar.title("Select plots")
+    st.sidebar.title("Select Plots")
     option = st.sidebar.radio('choose plot type', 
                       ("dataset","positive key words","negative key words",'count of tweets by airline', 
                        'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))  
