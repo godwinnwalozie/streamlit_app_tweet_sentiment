@@ -96,7 +96,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.write('<p class="big-font">❝𝐓𝐡𝐢𝐬 𝐦𝐚𝐜𝐡𝐢𝐧𝐞 𝐥𝐞𝐚𝐫𝐧𝐢𝐧𝐠 𝐦𝐨𝐝𝐞𝐥 𝐟𝐨𝐫 𝐚𝐢𝐫𝐥𝐢𝐧𝐞 𝐬𝐞𝐧𝐭𝐢𝐦𝐞𝐧𝐭 𝐚𝐧𝐚𝐥𝐲𝐬𝐢𝐬 𝐩𝐫𝐨𝐜𝐞𝐬𝐬𝐞𝐬 𝐜𝐮𝐬𝐭𝐨𝐦𝐞𝐫 𝐟𝐞𝐞𝐝𝐛𝐚𝐜𝐤 𝐟𝐫𝐨𝐦 𝐭𝐰𝐢𝐭𝐭𝐞𝐫 𝐫𝐞𝐯𝐢𝐞𝐰𝐬, 𝐜𝐨𝐦𝐦𝐞𝐧𝐭𝐬, 𝐭𝐨 𝐮𝐧𝐝𝐞𝐫𝐬𝐭𝐚𝐧𝐝 𝐩𝐮𝐛𝐥𝐢𝐜 𝐬𝐞𝐧𝐭𝐢𝐦𝐞𝐧𝐭 𝐭𝐨𝐰𝐚𝐫𝐝 𝐚𝐧 𝐚𝐢𝐫𝐥𝐢𝐧𝐞. 𝐓𝐡𝐞 𝐦𝐨𝐝𝐞𝐥 𝐮𝐬𝐞𝐬 𝐍𝐚𝐭𝐮𝐫𝐚𝐥 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 (𝐍𝐋𝐏) 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞𝐬 𝐭𝐨 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐲 𝐭𝐞𝐱𝐭 𝐢𝐧𝐭𝐨 𝐜𝐚𝐭𝐞𝐠𝐨𝐫𝐢𝐞𝐬 𝐥𝐢𝐤𝐞 𝐩𝐨𝐬𝐢𝐭𝐢𝐯𝐞, 𝐧𝐞𝐮𝐭𝐫𝐚𝐥, 𝐨𝐫 𝐧𝐞𝐠𝐚𝐭𝐢𝐯𝐞 𝐬𝐞𝐧𝐭𝐢𝐦𝐞𝐧𝐭𝐬.', 
+st.write('<p class="big-font">A machine learning model for airline sentiment analysis processes customer feedback, such as social media posts, reviews, and surveys, to understand public sentiment toward an airline. The model uses Natural Language Processing (NLP) techniques to classify text into categories like positive, neutral, or negative sentiments.', 
     unsafe_allow_html=True)  
 
 st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 30,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
