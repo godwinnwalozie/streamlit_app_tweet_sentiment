@@ -117,8 +117,7 @@ with st.container():
             
             st.write("###### Enter a sample tweet or product review to test")
             
-            tweet = st.text_input('delete review to input yours', 'sample: the customer \
-                                  service is very poor and they delayed in fixing my issues') 
+            tweet = st.text_input('delete review to input yours', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
 
             if st.button('click to make a prediction 👈'):
@@ -158,12 +157,7 @@ with col2:
                       ("dataset","positive key words","negative key words",'count of tweets by airline', 
                        'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)"))  
     
-    def show_dataset ():
-        if st.button("randomize dataset"):
-            random.random()
-        st.write(dataset.sample(7))
-   
-        
+            
     #wordcloud postive sentiments
   
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -223,7 +217,10 @@ with col2:
         return fig
     plot5= sent()
 
-
+    def show_dataset ():
+        if st.button("randomize dataset"):
+            random.random()
+        st.write(dataset.sample(7))
 
     if option == "dataset":
         show_dataset()
