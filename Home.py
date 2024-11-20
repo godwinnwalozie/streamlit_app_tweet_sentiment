@@ -108,7 +108,7 @@ plt.style.use("seaborn-v0_8")
 #st.write(data.sample(3))
 
 with st.container():
-    col1, col2 = st.columns([0.35, 0.65])
+    col1, col2 = st.columns([0.39, 0.61])
     with col1:
 
         #st.markdown("***")
