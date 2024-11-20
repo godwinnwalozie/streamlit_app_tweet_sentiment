@@ -151,8 +151,8 @@ with st.container():
 with col2:
     st.sidebar.title("Select Plots")
     option = st.sidebar.radio('choose plot type', 
-                      ("positive key words","negative key words",'count of tweets by airline', 
-                       'distribution of sentiments(pie chart)', "sentiments by airline(bar graph)","dataset",))  
+                      ("Positive key words","Negative key words",'Count of tweets by airline', 
+                       'Distribution of sentiments(pie chart)', "Sentiments by airline(bar graph)","Dataset",))  
     
             
     #wordcloud postive sentiments
