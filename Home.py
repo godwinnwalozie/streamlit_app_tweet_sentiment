@@ -111,7 +111,7 @@ with st.container():
     col1, col2 = st.columns([0.35, 0.65])
     with col1:
 
-        st.markdown("***")
+        #st.markdown("***")
         with st.container():
             
             
