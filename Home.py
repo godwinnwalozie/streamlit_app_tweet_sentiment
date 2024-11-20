@@ -65,7 +65,7 @@ file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
 st.image(file,width=400)
 
 st.write(" ##### Developed By: Godwin Nwalozie")
-st.success("𝔻𝕒𝕥𝕒𝕤𝕖𝕥 : 𝔸𝕓𝕠𝕦𝕥 30,000 𝕋𝕨𝕖𝕖𝕥𝕤")
+st.write("𝔻𝕒𝕥𝕒𝕤𝕖𝕥 : 𝔸𝕓𝕠𝕦𝕥 30,000 𝕋𝕨𝕖𝕖𝕥𝕤")
 
 path = os.path.abspath(os.path.dirname(__file__))
 
