@@ -139,9 +139,11 @@ with st.container():
                     st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
                   
         
+
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.image(file,width=400)
+st.sidebar.image(file,width=400)
+
 
 st.sidebar.title("Select Plots")
 option = st.sidebar.radio('choose plot type', 
@@ -242,6 +244,9 @@ st.sidebar.markdown(git,unsafe_allow_html=True)
 kaggle=' 🔍Find me on Kaggle [link](https://www.kaggle.com/godwinnwalozie/code)'
 st.sidebar.markdown(kaggle,unsafe_allow_html=True)
     
+""" dir_name = os.path.abspath(os.path.dirname(__file__))
+file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
+st.image(file,width=400) """
 
 
 
