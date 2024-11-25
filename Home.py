@@ -152,10 +152,16 @@ with st.container():
 with col2:
     st.sidebar.title("Select Plots")
     option = st.sidebar.radio('choose plot type', 
-                      ("Positive key words","Negative key words",'Count of tweets by airline', 
-                       'Distribution of sentiments(pie chart)', "Sentiments by airline(bar graph)","Dataset",))  
+                      ("Dataset","Positive key words","Negative key words",'Count of tweets by airline', 
+                       'Distribution of sentiments(pie chart)', "Sentiments by airline(bar graph)",))  
     
-            
+
+
+
+    def show_dataset ():
+        if st.button("randomize dataset"):
+            random.random()
+        st.write(dataset.sample(7))        
     #wordcloud postive sentiments
   
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -217,10 +223,7 @@ with col2:
         return fig
     plot5= sent()
 
-    def show_dataset ():
-        if st.button("randomize dataset"):
-            random.random()
-        st.write(dataset.sample(7))
+    
 
     if option == "dataset":
         show_dataset()
