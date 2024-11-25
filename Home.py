@@ -161,7 +161,9 @@ with col2:
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
-        st.write(dataset.sample(7))        
+    st.write(dataset.sample(7))  
+
+
     #wordcloud postive sentiments
   
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -195,8 +197,6 @@ with col2:
         plt.savefig("result.png",dpi=300)
         return fig
     plot2 = wordcloud_neg()
-
-
     
     # count of customer tweets by airline'
     @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -224,7 +224,6 @@ with col2:
     plot5= sent()
 
     
-
     if option == "dataset":
         show_dataset()
     elif option  == "Positive key words":
