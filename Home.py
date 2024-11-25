@@ -142,7 +142,7 @@ with st.container():
 
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.sidebar.image(file,width=200)
+st.sidebar.image(file,width=280)
 
 
 st.sidebar.title("Select Plots")
