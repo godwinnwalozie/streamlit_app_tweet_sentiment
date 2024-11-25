@@ -171,9 +171,9 @@ with st.container():
 
 
     def show_dataset ():        
-        if st.button("randomize dataset"):
-            random.random()
-            return st.write(dataset.sample(3))
+        st.button("randomize dataset")
+        random.random()
+        return st.write(dataset.sample(3))
     show_dataset()
     
 
