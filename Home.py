@@ -243,9 +243,9 @@ st.sidebar.markdown(git,unsafe_allow_html=True)
 kaggle=' 🔍Find me on Kaggle [link](https://www.kaggle.com/godwinnwalozie/code)'
 st.sidebar.markdown(kaggle,unsafe_allow_html=True)
     
-""" dir_name = os.path.abspath(os.path.dirname(__file__))
-file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.image(file,width=400) """
+#dir_name = os.path.abspath(os.path.dirname(__file__))
+#file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
+#st.image(file,width=400) """
 
 
 
