@@ -107,9 +107,6 @@ plt.style.use("seaborn-v0_8")
 ## st.write(data.sample(3))
 
 with st.container():
-    col1, col2 = st.columns([0.39,0.61])
-    with col1:
-
         #st.markdown("***")
         with st.container():
             
@@ -149,9 +146,9 @@ with st.container():
                   
         
 
-with col2:
-    st.sidebar.title("Select Plots")
-    option = st.sidebar.radio('choose plot type', 
+
+st.sidebar.title("Select Plots")
+option = st.sidebar.radio('choose plot type', 
                       ("Dataset","+ve wordcloud","-ve wordcloud",'Count of tweets', 
                        'Sentiments(pie chart)', "Sentiments by airline(bar graph)",))  
     
