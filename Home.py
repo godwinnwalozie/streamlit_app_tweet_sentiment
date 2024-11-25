@@ -147,7 +147,7 @@ with st.container():
 st.sidebar.title("Select Plots")
 option = st.sidebar.radio('choose plot type', 
                       ("+ve wordcloud","-ve wordcloud",'Count of tweets', 
-                       'Sentiments(pie chart)', "Sentiments by airline(bar graph)","Dataset"))  
+                       'Sentiments(pie chart)', "Sentiments by airline(bar graph)"))  
     
 with st.container(): 
     def show_dataset ():        
@@ -230,8 +230,7 @@ with st.container():
         plot4
     elif option == "Sentiments by airline(bar graph)":
         plot5
-    else:
-        show_dataset()
+    
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"mazi.png"))
