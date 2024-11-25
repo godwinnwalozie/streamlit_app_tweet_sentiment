@@ -99,15 +99,13 @@ st.markdown("****")
 
 
 plt.style.use("seaborn-v0_8")
-## st.write(data.sample(3))
 
-with st.container():
-            
-        #st.markdown("***")            
+with st.container():            
+      
             st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
             tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
-
+            st.markdown("***")      
             if st.button('click to make a prediction 👈'):
                 if tweet == "" :
                     counter = len(tweet)  
