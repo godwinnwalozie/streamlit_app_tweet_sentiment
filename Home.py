@@ -170,12 +170,11 @@ with st.container():
     plot1 = wordcloud_pos()
 
 
-    def show_dataset ():
-        
+    def show_dataset ():        
         if st.button("randomize dataset"):
             random.random()
             return st.write(dataset.sample(3))
-    plot7 = show_dataset()
+    show_dataset()
     
 
 
@@ -232,7 +231,7 @@ with st.container():
     elif option == "Sentiments by airline(bar graph)":
         plot5
     else:
-        plot7
+        show_dataset()
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"mazi.png"))
