@@ -223,9 +223,7 @@ with col2:
     plot5= sent()
 
     
-    if option == "dataset":
-        show_dataset()
-    elif option  == "+ve wordcloud":
+    if option  == "+ve wordcloud":
         plot1
     elif  option == "-ve wordcloud":
         plot2
