@@ -155,11 +155,9 @@ option = st.sidebar.radio('choose plot type',
 
 
 with st.container():
-    def show_dataset ():
-        if st.button("randomize dataset"):
-            random.random()
-    st.write(dataset.sample(4))  
 
+
+    
 
     #wordcloud postive sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -177,7 +175,12 @@ with st.container():
         return fig
     plot1 = wordcloud_pos()
 
-    
+    def show_dataset ():
+        if st.button("randomize dataset"):
+            random.random()
+    st.write(dataset.sample(4))  
+
+
     #wordcloud negative sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_neg ():
