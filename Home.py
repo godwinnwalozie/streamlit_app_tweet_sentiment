@@ -173,7 +173,7 @@ with st.container():
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
-            return show_dataset()
+        return show_dataset()
     
 
 
