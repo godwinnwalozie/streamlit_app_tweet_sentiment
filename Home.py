@@ -174,7 +174,7 @@ with st.container():
         if st.button("randomize dataset"):
             random.random()
             return show_dataset()
-    st.write(dataset.sample(4))  
+    
 
 
     #wordcloud negative sentiments
