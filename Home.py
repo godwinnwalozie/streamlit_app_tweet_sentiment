@@ -107,10 +107,8 @@ plt.style.use("seaborn-v0_8")
 ## st.write(data.sample(3))
 
 with st.container():
-        #st.markdown("***")
-        with st.container():
             
-            
+        #st.markdown("***")            
             st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
             tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
             
@@ -146,7 +144,6 @@ with st.container():
                   
         
 
-
 st.sidebar.title("Select Plots")
 option = st.sidebar.radio('choose plot type', 
                       ("+ve wordcloud","-ve wordcloud",'Count of tweets', 
@@ -154,10 +151,7 @@ option = st.sidebar.radio('choose plot type',
     
 
 
-with st.container():
-
-
-    
+with st.container(): 
 
     #wordcloud postive sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -175,9 +169,11 @@ with st.container():
         return fig
     plot1 = wordcloud_pos()
 
+
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
+            return show_dataset()
     st.write(dataset.sample(4))  
 
 
