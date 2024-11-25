@@ -100,9 +100,8 @@ st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯�
 plt.style.use("seaborn-v0_8")
 
 with st.container(): 
-            col1, col2 = st.columns([0.3,0.7])
-            with col1:   
-                            
+            col1, col2 = st.columns([0.5,0.5])
+            with col1:                         
       
                     st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
                     tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
@@ -137,25 +136,21 @@ with st.container():
                             st.write(f" #### 【{prediction}】")
                             st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
                   
-        
+            with col2: 
+                 
 
-dir_name = os.path.abspath(os.path.dirname(__file__))
-file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.sidebar.image(file,width=400)
+                        dir_name = os.path.abspath(os.path.dirname(__file__))
+                        file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
+                        st.sidebar.image(file,width=400)
+                    
 
-
-st.sidebar.title("Select Plots")
-option = st.sidebar.radio('choose plot type', 
-                      ("+ve wordcloud","-ve wordcloud",'Count of tweets', 
-                       'Sentiments(pie chart)', "Sentiments by airline(bar graph)"))  
+                        st.sidebar.title("Select Plots")
+                        option = st.sidebar.radio('choose plot type', 
+                                            ("+ve wordcloud","-ve wordcloud",'Count of tweets', 
+                                            'Sentiments(pie chart)', "Sentiments by airline(bar graph)"))  
     
-with st.container(): 
-    def show_dataset ():        
-        if st.button("randomize dataset"):
-             return st.write(dataset.sample(3))
-        random.random()
-    show_dataset()
-    
+
+  
 
 with st.container(): 
 
