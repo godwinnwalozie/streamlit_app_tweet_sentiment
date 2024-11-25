@@ -151,11 +151,10 @@ option = st.sidebar.radio('choose plot type',
     
 with st.container(): 
     def show_dataset ():        
-        
-        return st.write(dataset.sample(3))
-    random.random()
-    st.button("randomize dataset")
-show_dataset()
+        if st.button("randomize dataset"):
+             return st.write(dataset.sample(3))
+        random.random()
+    show_dataset()
     
 
 with st.container(): 
