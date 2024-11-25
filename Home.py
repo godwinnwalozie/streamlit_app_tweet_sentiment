@@ -158,11 +158,6 @@ with col2:
 
 
 
-    def show_dataset ():
-        if st.button("randomize dataset"):
-            random.random()
-    st.write(dataset.sample(7))  
-
 
     #wordcloud postive sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
