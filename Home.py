@@ -60,11 +60,6 @@ div.stButton > button:hover {
 
 
 
-st.write(" 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗱 𝗕𝘆: 𝗚𝗼𝗱𝘄𝗶𝗻 𝗡𝘄𝗮𝗹𝗼𝘇𝗶𝗲")
-
-
-path = os.path.abspath(os.path.dirname(__file__))
-
 # Load ML Models
 ## @st.cache(suppress_st_warning=True, allow_output_mutation=True, persist= True)
 def load_model ():
@@ -81,6 +76,14 @@ def load_data():
 dataset =load_data()
 ## initialize session state
 st.session_state['dataset'] = dataset
+
+
+st.write(" 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗱 𝗕𝘆: 𝗚𝗼𝗱𝘄𝗶𝗻 𝗡𝘄𝗮𝗹𝗼𝘇𝗶𝗲")
+
+
+path = os.path.abspath(os.path.dirname(__file__))
+
+
 
 
 st.markdown("""
