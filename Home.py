@@ -228,8 +228,10 @@ with st.container():
         plot3
     elif option == "Sentiments(pie chart)" :
         plot4
-    else:
+    elif option == "Sentiments by airline(bar graph)":
         plot5
+    else:
+        show_dataset()
 
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
