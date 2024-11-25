@@ -173,9 +173,8 @@ with st.container():
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
-        return show_dataset()
+    plot7 = show_dataset()
     
-
 
     #wordcloud negative sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -230,7 +229,7 @@ with st.container():
     elif option == "Sentiments by airline(bar graph)":
         plot5
     else:
-        show_dataset()
+        plot7
 
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
