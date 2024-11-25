@@ -100,7 +100,7 @@ st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯�
 plt.style.use("seaborn-v0_8")
 
 with st.container(): 
-            col1, col2 = st.columns([0.5,0.5])
+            col1, col2 = st.columns([0.4,0.6])
             with col1:                         
       
                     st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
@@ -135,6 +135,9 @@ with st.container():
                                 st.balloons()
                             st.write(f" #### 【{prediction}】")
                             st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
+
+
+                            
                   
             with col2: 
                  
@@ -150,81 +153,79 @@ with st.container():
                                             'Sentiments(pie chart)', "Sentiments by airline(bar graph)"))  
     
 
-  
+                    
 
-with st.container(): 
-
-    #wordcloud postive sentiments
-    @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
-    def wordcloud_pos ():
-        fig, ax = plt.subplots() 
-        super = dataset.loc[:,["tweets","airline_sentiment"]]
-        text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
-        wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
-    relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
-        plt.title("Wordcloud | Most recurring positive words", fontsize = 17)
-        plt.axis("off")
-        #plt.tight_layout(pad=0)
-        ax.imshow(wc,interpolation="bilinear")
-        plt.savefig("result.png",dpi=300)
-        return fig
-    plot1 = wordcloud_pos()
+                        #wordcloud postive sentiments
+                        @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+                        def wordcloud_pos ():
+                            fig, ax = plt.subplots() 
+                            super = dataset.loc[:,["tweets","airline_sentiment"]]
+                            text = "".join(super[super.airline_sentiment == "positive"].tweets.astype(str))
+                            wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
+                        relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
+                            plt.title("Wordcloud | Most recurring positive words", fontsize = 17)
+                            plt.axis("off")
+                            #plt.tight_layout(pad=0)
+                            ax.imshow(wc,interpolation="bilinear")
+                            plt.savefig("result.png",dpi=300)
+                            return fig
+                        plot1 = wordcloud_pos()
 
 
 
 
-    #wordcloud negative sentiments
-    @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
-    def wordcloud_neg ():
-        fig, ax = plt.subplots() 
-        super = dataset.loc[:,["tweets","airline_sentiment"]]
-        text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
-        wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
-    relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
-        plt.title("Wordcloud | Most recurring negative words", fontsize = 17)
-        plt.axis("off")
-        #plt.tight_layout(pad=0)
-        ax.imshow(wc,interpolation="bilinear")
-        plt.savefig("result.png",dpi=300)
-        return fig
-    plot2 = wordcloud_neg()
-    
-    # count of customer tweets by airline'
-    @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
-    def tweet_count ():
-        fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count(),\
-            title="Count of tweets by airline")
-        return fig
-    plot3 = tweet_count()
-    
-    
-    # sentiment % by airlines 
-    def pie_perc ():
-        fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
-                    names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)",hole=0.5 )
-        fig.update_traces(textposition='outside', textinfo='percent+label')
-        return fig
-    plot4 = pie_perc()
-    
-    
-    # sentiments by airline
-    @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
-    def sent ():            
-        fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
-        return fig
-    plot5= sent()
+                        #wordcloud negative sentiments
+                        @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+                        def wordcloud_neg ():
+                            fig, ax = plt.subplots() 
+                            super = dataset.loc[:,["tweets","airline_sentiment"]]
+                            text = "".join(super[super.airline_sentiment == "negative"].tweets.astype('str'))
+                            wc= WordCloud(max_words = 2000,background_color="black", max_font_size=80, scale=10,\
+                        relative_scaling=.6,random_state=42,normalize_plurals=True).generate(text)
+                            plt.title("Wordcloud | Most recurring negative words", fontsize = 17)
+                            plt.axis("off")
+                            #plt.tight_layout(pad=0)
+                            ax.imshow(wc,interpolation="bilinear")
+                            plt.savefig("result.png",dpi=300)
+                            return fig
+                        plot2 = wordcloud_neg()
+                        
+                        # count of customer tweets by airline'
+                        @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+                        def tweet_count ():
+                            fig = px.bar(dataset.loc[:,["airline","airline_sentiment"]].groupby("airline").count(),\
+                                title="Count of tweets by airline")
+                            return fig
+                        plot3 = tweet_count()
+                        
+                        
+                        # sentiment % by airlines 
+                        def pie_perc ():
+                            fig = px.pie(dataset.airline_sentiment.value_counts(), values = dataset.airline_sentiment.value_counts().values,
+                                        names= dataset.airline_sentiment.value_counts().index,title="% distribution of sentiments(pie chart)",hole=0.5 )
+                            fig.update_traces(textposition='outside', textinfo='percent+label')
+                            return fig
+                        plot4 = pie_perc()
+                        
+                        
+                        # sentiments by airline
+                        @st.cache_resource(hash_funcs={matplotlib.figure.Figure: lambda _: None})
+                        def sent ():            
+                            fig = px.bar(pd.crosstab(dataset.airline, dataset.airline_sentiment),title="Sentiments by airline(bar graph)",barmode='group')
+                            return fig
+                        plot5= sent()
 
     
-    if option  == "+ve wordcloud":
-        plot1
-    elif  option == "-ve wordcloud":
-        plot2
-    elif option == "Count of tweets":
-        plot3
-    elif option == "Sentiments(pie chart)" :
-        plot4
-    elif option == "Sentiments by airline(bar graph)":
-        plot5
+                        if option  == "+ve wordcloud":
+                            plot1
+                        elif  option == "-ve wordcloud":
+                            plot2
+                        elif option == "Count of tweets":
+                            plot3
+                        elif option == "Sentiments(pie chart)" :
+                            plot4
+                        elif option == "Sentiments by airline(bar graph)":
+                            plot5
     
   
 #dir_name = os.path.abspath(os.path.dirname(__file__))
