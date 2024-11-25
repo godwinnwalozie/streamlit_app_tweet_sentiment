@@ -60,10 +60,6 @@ div.stButton > button:hover {
 
 
 
-dir_name = os.path.abspath(os.path.dirname(__file__))
-file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.image(file,width=400)
-
 st.write(" 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗱 𝗕𝘆: 𝗚𝗼𝗱𝘄𝗶𝗻 𝗡𝘄𝗮𝗹𝗼𝘇𝗶𝗲")
 
 
@@ -143,6 +139,9 @@ with st.container():
                     st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
                   
         
+dir_name = os.path.abspath(os.path.dirname(__file__))
+file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
+st.image(file,width=400)
 
 st.sidebar.title("Select Plots")
 option = st.sidebar.radio('choose plot type', 
