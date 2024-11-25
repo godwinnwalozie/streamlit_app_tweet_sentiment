@@ -102,11 +102,12 @@ st.write('<p class="big-font">A machine learning model for airline sentiment ana
 st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 20,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
 st.markdown("****")
 
+
 plt.style.use("seaborn-v0_8")
-#st.write(data.sample(3))
+## st.write(data.sample(3))
 
 with st.container():
-    col1, col2 = st.columns([0.39, 0.61])
+    col1, col2 = st.columns([0.39,0.61])
     with col1:
 
         #st.markdown("***")
