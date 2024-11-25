@@ -95,45 +95,47 @@ st.write('<p class="big-font">A machine learning model for airline sentiment ana
     unsafe_allow_html=True)  
 
 st.write("𝗗𝗮𝘁𝗮𝘀𝗲𝘁 𝗧𝗿𝗮𝗶𝗻𝗲𝗱 : 𝗔𝗯𝗼𝘂𝘁 20,000 𝘁𝘄𝗲𝗲𝘁𝘀 𝗳𝗿𝗼𝗺 𝗔𝗶𝗿𝗹𝗶𝗻𝗲 𝗰𝘂𝘀𝘁𝗼𝗺𝗲𝗿𝘀")
-st.markdown("****")
 
 
 plt.style.use("seaborn-v0_8")
 
-with st.container():            
+with st.container(): 
+            col1, col2 = st.columns([0.3,0.7])
+            with col1:   
+                            
       
-            st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
-            tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
-            
-            st.markdown("***")      
-            if st.button('click to make a prediction 👈'):
-                if tweet == "" :
-                    counter = len(tweet)  
-                    st.markdown(f" character counter: {counter}")
-                    st.error(" ##### ...empty ! 😀 input some text")
-                                      
-                elif len(tweet) < 25:
-                    st.error(" #####  😔 enter more characters")
-                    counter = len(tweet)  
-                    st.markdown(f" character counter: {counter}")
+                    st.write('###### Enter a sample tweet or product review to test',unsafe_allow_html=True)
+                    tweet = st.text_input('', 'sample: the customer service is very poor and they delayed in fixing my issues ') 
                     
-                
-                else:
-                    model = load_model()
-                    probab = model.predict_proba([tweet])
-                    probab_neg = np.round(model.predict_proba([tweet]),3)[:,0]
-                    probab_neut = np.round(model.predict_proba([tweet]),3)[:,1]
-                    probab_pos = np.round(model.predict_proba([tweet]),3)[:,2]
-                    prediction = model.predict([tweet])[0] 
-                    if prediction  == -1 :
-                        prediction =  "Negative review 👎" 
-                    elif  prediction == 0:
-                        prediction = "Neutral Review   😐"
-                    else:
-                        prediction = "Positive Review  ⭐👍"
-                        st.balloons()
-                    st.write(f" #### 【{prediction}】")
-                    st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
+                    
+                    if st.button('click to make a prediction 👈'):
+                        if tweet == "" :
+                            counter = len(tweet)  
+                            st.markdown(f" character counter: {counter}")
+                            st.error(" ##### ...empty ! 😀 input some text")
+                                            
+                        elif len(tweet) < 25:
+                            st.error(" #####  😔 enter more characters")
+                            counter = len(tweet)  
+                            st.markdown(f" character counter: {counter}")
+                            
+                        
+                        else:
+                            model = load_model()
+                            probab = model.predict_proba([tweet])
+                            probab_neg = np.round(model.predict_proba([tweet]),3)[:,0]
+                            probab_neut = np.round(model.predict_proba([tweet]),3)[:,1]
+                            probab_pos = np.round(model.predict_proba([tweet]),3)[:,2]
+                            prediction = model.predict([tweet])[0] 
+                            if prediction  == -1 :
+                                prediction =  "Negative review 👎" 
+                            elif  prediction == 0:
+                                prediction = "Neutral Review   😐"
+                            else:
+                                prediction = "Positive Review  ⭐👍"
+                                st.balloons()
+                            st.write(f" #### 【{prediction}】")
+                            st.markdown(f"""##### Negative @ {probab_neg *100}% ⋆⋆  Neutral @{probab_neut*100}% ⋆⋆ Positive @ {probab_pos*100}% """)
                   
         
 
