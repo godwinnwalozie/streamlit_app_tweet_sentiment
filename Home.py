@@ -149,7 +149,13 @@ option = st.sidebar.radio('choose plot type',
                       ("+ve wordcloud","-ve wordcloud",'Count of tweets', 
                        'Sentiments(pie chart)', "Sentiments by airline(bar graph)","Dataset"))  
     
-
+with st.container(): 
+    def show_dataset ():        
+        st.button("randomize dataset")
+        random.random()
+        return st.write(dataset.sample(3))
+    show_dataset()
+    
 
 with st.container(): 
 
@@ -170,12 +176,6 @@ with st.container():
     plot1 = wordcloud_pos()
 
 
-    def show_dataset ():        
-        st.button("randomize dataset")
-        random.random()
-        return st.write(dataset.sample(3))
-    show_dataset()
-    
 
 
     #wordcloud negative sentiments
