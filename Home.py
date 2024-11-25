@@ -22,7 +22,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
         <style>
                 .css-18e3th9 {
-                    padding-top: 0.9rem;
+                    padding-top: 0rem;
                     padding-bottom: 0.2rem;
                 }
                 .css-hxt7ib {
@@ -235,6 +235,7 @@ with st.container():
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"mazi.png"))
 st.sidebar.image(file,width=150 )
+
 # Find me links
 kaggle=' 🔍Find me on Linkedin [link](https://www.linkedin.com/in/godwinnwalozie/)'
 st.sidebar.markdown(kaggle,unsafe_allow_html=True)
