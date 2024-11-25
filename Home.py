@@ -158,7 +158,7 @@ with st.container():
     def show_dataset ():
         if st.button("randomize dataset"):
             random.random()
-    st.write(dataset.sample(7))  
+    st.write(dataset.sample(4))  
 
 
     #wordcloud postive sentiments
