@@ -172,9 +172,10 @@ with st.container():
 
     def show_dataset ():
         if st.button("randomize dataset"):
-            st.write(dataset.random)
-    plot7 = show_dataset()
+            random.random()
+    plot7= st.write(dataset.sample(4))  
     
+
 
     #wordcloud negative sentiments
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
@@ -230,7 +231,6 @@ with st.container():
         plot5
     else:
         plot7
-
   
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"mazi.png"))
