@@ -59,6 +59,9 @@ div.stButton > button:hover {
 </style>""", unsafe_allow_html=True)
 
 
+st.write(" 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗱 𝗕𝘆: 𝗚𝗼𝗱𝘄𝗶𝗻 𝗡𝘄𝗮𝗹𝗼𝘇𝗶𝗲")
+
+
 path = os.path.abspath(os.path.dirname(__file__))
 
 # Load ML Models
@@ -77,10 +80,6 @@ def load_data():
 dataset =load_data()
 ## initialize session state
 st.session_state['dataset'] = dataset
-
-
-
-st.write(" 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗱 𝗕𝘆: 𝗚𝗼𝗱𝘄𝗶𝗻 𝗡𝘄𝗮𝗹𝗼𝘇𝗶𝗲")
 
 
 st.markdown("""
@@ -142,7 +141,7 @@ with st.container():
 
 dir_name = os.path.abspath(os.path.dirname(__file__))
 file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-st.sidebar.image(file,width=280)
+st.sidebar.image(file,width=400)
 
 
 st.sidebar.title("Select Plots")
@@ -153,8 +152,8 @@ option = st.sidebar.radio('choose plot type',
 with st.container(): 
     def show_dataset ():        
         st.button("randomize dataset")
-        random.random()
         return st.write(dataset.sample(3))
+    random.random()
     show_dataset()
     
 
