@@ -152,8 +152,8 @@ with st.container():
 with col2:
     st.sidebar.title("Select Plots")
     option = st.sidebar.radio('choose plot type', 
-                      ("Dataset","Positive key words","Negative key words",'Count of tweets by airline', 
-                       'Distribution of sentiments(pie chart)', "Sentiments by airline(bar graph)",))  
+                      ("Dataset","+ve wordcloud","-ve wordcloud",'# of tweets by airline', 
+                       'Sentiments(pie chart)', "Sentiments by airline(bar graph)",))  
     
 
 
@@ -165,7 +165,6 @@ with col2:
 
 
     #wordcloud postive sentiments
-  
     @st.cache_data(hash_funcs={matplotlib.figure.Figure: lambda _: None})
     def wordcloud_pos ():
         fig, ax = plt.subplots() 
@@ -226,13 +225,13 @@ with col2:
     
     if option == "dataset":
         show_dataset()
-    elif option  == "Positive key words":
+    elif option  == "+ve wordcloud":
         plot1
-    elif  option == "Negative key words":
+    elif  option == "-ve wordcloud":
         plot2
-    elif option == "Count of tweets by airline":
+    elif option == "# of tweets by airline":
         plot3
-    elif option == "Distribution of sentiments(pie chart)" :
+    elif option == "Sentiments(pie chart)" :
         plot4
     else:
         plot5
