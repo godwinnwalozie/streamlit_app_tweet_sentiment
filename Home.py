@@ -152,7 +152,7 @@ with st.container():
 with col2:
     st.sidebar.title("Select Plots")
     option = st.sidebar.radio('choose plot type', 
-                      ("Dataset","+ve wordcloud","-ve wordcloud",'# of tweets by airline', 
+                      ("Dataset","+ve wordcloud","-ve wordcloud",'"#" of tweets by airline', 
                        'Sentiments(pie chart)', "Sentiments by airline(bar graph)",))  
     
 
