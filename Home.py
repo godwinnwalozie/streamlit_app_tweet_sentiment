@@ -173,8 +173,8 @@ with st.container():
     def show_dataset ():
         
         if st.button("randomize dataset"):
-            st.write(dataset.sample(3))
             random.random()
+            st.write(dataset.sample(3))
     plot7 = show_dataset()
     
 
