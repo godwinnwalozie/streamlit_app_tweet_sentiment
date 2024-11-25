@@ -39,7 +39,7 @@ text_input_area = '''
           width: 800px;
         }
         textarea.st-cl {
-          height: 400px;
+          height: 300px;
         }
     </style>
     '''
@@ -244,7 +244,7 @@ st.sidebar.markdown(kaggle,unsafe_allow_html=True)
     
 #dir_name = os.path.abspath(os.path.dirname(__file__))
 #file = Image.open(os.path.join(dir_name,"image header- sentiment.png"))
-#st.image(file,width=400) """
+#st.image(file,width=400)
 
 
 
